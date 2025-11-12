@@ -2,8 +2,10 @@
  * HardwareManager Module
  * Abstraction layer for POS hardware devices
  * Supports printers, cash registers, and barcode scanners
+ * SUNLUX RP8020 Thermal Printer support added
  */
 const EventEmitter = require('events');
+const SunluxRP8020Printer = require('./SunluxRP8020Printer');
 
 class HardwareManager extends EventEmitter {
   constructor() {
@@ -12,6 +14,21 @@ class HardwareManager extends EventEmitter {
     this.printers = new Map();
     this.cashDrawers = new Map();
     this.barcodeScanner = null;
+    this.initializeSunluxPrinter();
+  }
+
+  // Initialize Sunlux RP8020 printer by default
+  initializeSunluxPrinter() {
+    const sunluxConfig = {
+      paperWidth: 80,
+      encoding: 'UTF-8',
+      baudRate: 9600,
+      cutPaper: true,
+      buzzer: true
+    };
+
+    this.registerDevice('sunlux_rp8020', 'sunlux_printer', sunluxConfig);
+    console.log('✅ Sunlux RP8020 yazıcı hazır');
   }
 
   // Device Registration
@@ -27,7 +44,9 @@ class HardwareManager extends EventEmitter {
 
     this.devices.set(deviceId, device);
 
-    if (deviceType === 'printer') {
+    if (deviceType === 'sunlux_printer') {
+      this.printers.set(deviceId, new SunluxRP8020Printer(deviceId, config));
+    } else if (deviceType === 'printer') {
       this.printers.set(deviceId, new ReceiptPrinter(deviceId, config));
     } else if (deviceType === 'cash_drawer') {
       this.cashDrawers.set(deviceId, new CashDrawer(deviceId, config));
