@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş - Restaurant POS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <!-- Logo/Header -->
+            <div class="login-header">
+                <div class="logo">🍽️</div>
+                <h1>Restaurant POS</h1>
+                <p>Sisteme Giriş Yapın</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <span class="icon">👤</span>
+                        Kullanıcı Adı
+                    </label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Kullanıcı adınızı girin"
+                        required
+                        autocomplete="username"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <span class="icon">🔒</span>
+                        Şifre
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Şifrenizi girin"
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <div class="error-message" id="errorMessage"></div>
+
+                <button type="submit" class="btn-login" id="loginButton">
+                    <span id="buttonText">Giriş Yap</span>
+                    <span id="buttonSpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <!-- Demo Accounts Info -->
+            <div class="demo-accounts">
+                <h3>Demo Hesaplar</h3>
+                <div class="demo-account">
+                    <strong>Yönetici:</strong>
+                    <code>yonetici / admin123</code>
+                </div>
+                <div class="demo-account">
+                    <strong>Garson:</strong>
+                    <code>garson1 / garson123</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="login-footer">
+            <p>&copy; 2024 Restaurant POS System</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Menu - Restaurant POS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="menu-header">
+            <h1>Our Menu</h1>
+            <p class="tagline">Delicious dishes made with love</p>
+        </header>
+
+        <!-- Category Tabs -->
+        <nav class="category-nav" id="categoryNav">
+            <!-- Categories will be loaded dynamically -->
+        </nav>
+
+        <!-- Menu Items -->
+        <main class="menu-content">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading menu...</p>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be loaded dynamically -->
+            </div>
+
+            <div class="offline-notice" id="offlineNotice" style="display: none;">
+                <p>⚠️ You are viewing cached menu data (offline mode)</p>
+            </div>
+        </main>
+
+        <!-- Item Detail Modal -->
+        <div class="modal" id="itemModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="itemDetail"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
